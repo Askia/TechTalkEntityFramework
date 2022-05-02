@@ -13,5 +13,12 @@ Define Connection string for your database.
 
 # Step 3 : Create intial migration
 dotnet ef migrations add InitialMigration -s .\Demo.Web\Demo.Web.csproj -p .\Demo.Data\Demo.Data.csproj
+Apply changes on database :
+`
+dotnet ef database update -s .\Demo.Web\Demo.Web.csproj -p .\Demo.Data\Demo.Data.csproj
+`
 
 
+# Step 4 : Add question
+Add question in C# and run migration script
+ dotnet ef migrations add AddQuestionTable -s .\Demo.Web\Demo.Web.csproj -p .\Demo.Data\Demo.Data.csproj
