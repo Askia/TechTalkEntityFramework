@@ -13,6 +13,7 @@ namespace Demo.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new SurveyEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new QuestionEntityConfiguration());
         }
     }
 }
