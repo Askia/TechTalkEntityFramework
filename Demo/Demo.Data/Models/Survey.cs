@@ -10,6 +10,8 @@ namespace Demo.Data.Models
         public string Name { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        public virtual ICollection<Question> Questions { get; set; }
     }
 
     public class SurveyEntityConfiguration : IEntityTypeConfiguration<Survey>
