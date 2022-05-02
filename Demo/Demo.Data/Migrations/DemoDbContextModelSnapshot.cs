@@ -35,7 +35,7 @@ namespace Demo.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarcharch(100)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
