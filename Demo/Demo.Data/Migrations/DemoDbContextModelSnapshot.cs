@@ -22,23 +22,6 @@ namespace Demo.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Demo.Data.Models.Languages", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Languages");
-                });
-
             modelBuilder.Entity("Demo.Data.Models.Question", b =>
                 {
                     b.Property<int>("Id")
@@ -104,21 +87,6 @@ namespace Demo.Data.Migrations
                     b.ToTable("SurveyPreview");
                 });
 
-            modelBuilder.Entity("LanguagesSurvey", b =>
-                {
-                    b.Property<int>("LanguagesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SurveysId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LanguagesId", "SurveysId");
-
-                    b.HasIndex("SurveysId");
-
-                    b.ToTable("LanguagesSurvey");
-                });
-
             modelBuilder.Entity("Demo.Data.Models.Question", b =>
                 {
                     b.HasOne("Demo.Data.Models.Survey", "Survey")
@@ -139,21 +107,6 @@ namespace Demo.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Survey");
-                });
-
-            modelBuilder.Entity("LanguagesSurvey", b =>
-                {
-                    b.HasOne("Demo.Data.Models.Languages", null)
-                        .WithMany()
-                        .HasForeignKey("LanguagesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Demo.Data.Models.Survey", null)
-                        .WithMany()
-                        .HasForeignKey("SurveysId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Demo.Data.Models.Survey", b =>
