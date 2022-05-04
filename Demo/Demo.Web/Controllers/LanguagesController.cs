@@ -25,7 +25,7 @@ namespace Demo.Web.Controllers
             return languagesDto;
         }
 
-        [HttpGet("Languages/{id}")]
+        [HttpGet("Languages/{idLanguage:int}")]
         public LanguageDto GetLanguage(int idLanguage)
         {
             var language = _dbContext.Languages.Include(l => l.Surveys).SingleOrDefault(l => l.Id == idLanguage);
