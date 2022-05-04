@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace Demo.Web.Controllers
 {
     [ApiController]
-    //[Route("[controller]")]
     public class SurveysController : Controller
     {
         private readonly DemoDbContext _dbContext;
@@ -25,7 +24,13 @@ namespace Demo.Web.Controllers
         }
 
         [HttpGet("SurveysWithPreview")]
-        public IEnumerable<SurveyDto> GetExtendedSurvey()
+        public IEnumerable<SurveyDto> GetSurveyWithPreview()
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet("SurveysWithQuestions")]
+        public IEnumerable<SurveyDto> GetSurveyWithQuestions()
         {
             throw new NotImplementedException();
         }
