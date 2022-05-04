@@ -17,7 +17,7 @@ namespace Demo.Data.Models
         public void Configure(EntityTypeBuilder<Survey> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Name).HasColumnType("nvarcharch(100)");
+            builder.Property(x => x.Name).HasColumnType("nvarchar(100)");
         }
     }
 }
