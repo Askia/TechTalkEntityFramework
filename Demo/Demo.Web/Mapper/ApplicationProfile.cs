@@ -9,7 +9,8 @@ namespace Demo.Web.Mapper
         public ApplicationProfile()
         {
             CreateMap<Survey, SurveyDto>();
-            CreateMap<SurveyPreview, SurveyPreviewDto>();
+            CreateMap<SurveyPreview, SurveyPreviewDto>()
+                  .ForMember(dest => dest.Html, act => act.MapFrom(src => src.HtmlContent));
         }
     }
 }
