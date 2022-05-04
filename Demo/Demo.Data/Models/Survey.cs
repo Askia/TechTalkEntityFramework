@@ -15,6 +15,7 @@ namespace Demo.Data.Models
 
         public virtual SurveyPreview SurveyPreview { get; set; }
 
+        public virtual ICollection<Languages> Languages { get; set; }
     }
 
     public class SurveyEntityConfiguration : IEntityTypeConfiguration<Survey>
