@@ -9,6 +9,8 @@ namespace Demo.Data.Models
 
         public string HtmlContent { get; set; }
 
+        public int SurveyId { get; set; }
+
         public virtual Survey Survey { get; set; }
     }
 
@@ -17,7 +19,9 @@ namespace Demo.Data.Models
         public void Configure(EntityTypeBuilder<SurveyPreview> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.HasOne(x => x.Survey).WithOne(x => x.SurveyPreview);
+            builder.HasOne(x => x.Survey)
+                .WithOne(x => x.SurveyPreview)
+                .HasForeignKey(nameof(SurveyPreview.SurveyId));
         }
     }
 }
