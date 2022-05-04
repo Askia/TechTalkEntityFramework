@@ -11,6 +11,8 @@ namespace Demo.Data.Models
 
         public DateTime CreatedAt { get; set; }
 
+        public int? SurveyPreviewId { get; set; }
+
         public virtual ICollection<Question> Questions { get; set; }
 
         public virtual SurveyPreview SurveyPreview { get; set; }
@@ -24,6 +26,13 @@ namespace Demo.Data.Models
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).HasColumnType("nvarchar(100)");
+
+            //builder.HasOne(x => x.SurveyPreview)
+            //   .WithOne(x => x.Survey)
+            //   .HasForeignKey(nameof(SurveyPreview.SurveyId));
+
+            builder.HasOne(s => s.SurveyPreview)
+                .WithOne(sp => sp.Survey);
         }
     }
 }

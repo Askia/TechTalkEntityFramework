@@ -11,6 +11,8 @@ namespace Demo.Web.Mapper
             CreateMap<Survey, SurveyDto>();
             CreateMap<SurveyPreview, SurveyPreviewDto>()
                   .ForMember(dest => dest.Html, act => act.MapFrom(src => src.HtmlContent));
+            CreateMap<Languages, LanguageDto>()
+                 .ForMember(dest => dest.SurveyIds, act => act.MapFrom(src => src.Surveys.Select(s => s.Id)));
         }
     }
 }

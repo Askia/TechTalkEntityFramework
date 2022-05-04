@@ -21,7 +21,7 @@ namespace Demo.Data.Models
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Survey)
                 .WithOne(x => x.SurveyPreview)
-                .HasForeignKey(nameof(SurveyPreview.SurveyId));
+                .HasForeignKey<SurveyPreview>("SurveyId");
         }
     }
 }
