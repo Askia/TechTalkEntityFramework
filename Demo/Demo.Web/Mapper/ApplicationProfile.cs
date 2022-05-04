@@ -9,6 +9,7 @@ namespace Demo.Web.Mapper
         public ApplicationProfile()
         {
             CreateMap<Survey, SurveyDto>();
+            CreateMap<SurveyPreview, SurveyPreviewDto>();
         }
     }
 }
